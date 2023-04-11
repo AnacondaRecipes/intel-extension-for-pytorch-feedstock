@@ -17,6 +17,7 @@ build:
   skip: True  # [not linux64]
   missing_dso_whitelist:
     - "$RPATH/libc10.so"
+    - "$RPATH/libLLVM-14.so"
     - "$RPATH/libtorch_cpu.so"
     - "$RPATH/libtorch_python.so"
 
@@ -40,8 +41,9 @@ requirements:
   run:
     - python
     - psutil
-    - libllvm14 14.0.6
     - torchvision
+    - intel-openmp
+    - libllvm14 14.0.6
     - pytorch {{ version }}
 
 test:
