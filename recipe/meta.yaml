@@ -25,15 +25,15 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - llvmdev 14.0.6
+    - cmake 3.22.1
     - patch
-    - git
+    - git                     # [not win]
   host:
     - python
     - pip
     - wheel
     - setuptools
     - packaging 23.0
-    - cmake 3.22.1
     - pybind11 2.10.1
     - pytorch {{ version }}
   run:
@@ -55,9 +55,8 @@ test:
 about:
   home: https://www.intel.com/content/www/us/en/developer/tools/oneapi/optimization-for-pytorch.html
   license_file: LICENSE.txt
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
-  license_url: https://github.com/intel/intel-extension-for-pytorch/blob/master/LICENSE
   summary: Intel® Extension for PyTorch for extra performance boost on Intel hardware.
   description: |
     | Intel® Extension for PyTorch extends PyTorch with up-to-date features optimizations
