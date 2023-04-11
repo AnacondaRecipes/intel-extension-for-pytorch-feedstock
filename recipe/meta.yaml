@@ -27,6 +27,7 @@ requirements:
     - llvmdev 14.0.6
     - cmake 3.22.1
     - patch
+    - make
     - git                     # [not win]
   host:
     - python
