@@ -42,7 +42,9 @@ requirements:
     - python
     - psutil
     - torchvision
+    # Both OpenMP installations can be used with this package (can be selected at runtime).
     - intel-openmp
+    - _openmp_mutex
     - libllvm14 14.0.6
     - pytorch {{ version }}
 
