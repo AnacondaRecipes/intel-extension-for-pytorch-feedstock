@@ -13,9 +13,9 @@ source:
 
 build:
   number: 0
-  # Anything other than linux-64 is not supported fully by upstream, and
-  # Python 3.8 has some older libraries. Meanwhile, 3.11 doesn't have PyTorch yet.
-  skip: True  # [py<39 or py>310]
+  # Anything other than linux-64 is not supported fully by upstream, and 3.11
+  # doesn't have PyTorch yet.
+  skip: True  # [py<38 or py>310]
   skip: True  # [not linux64]
   missing_dso_whitelist:
     - "$RPATH/libc10.so"
