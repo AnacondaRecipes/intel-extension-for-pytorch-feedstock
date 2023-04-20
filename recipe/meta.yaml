@@ -54,7 +54,6 @@ test:
   requires:
     - pip
     - torchvision
-    - intel-extension-for-pytorch
   commands:
     - pip check
     - python -c "import torch; import torchvision; import intel_extension_for_pytorch"
