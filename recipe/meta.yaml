@@ -14,7 +14,8 @@ source:
 build:
   number: 0
   # Anything other than linux-64 is not supported fully by upstream, and 3.11
-  # doesn't have PyTorch yet.
+  # doesn't have PyTorch yet. See the following link for more info:
+  # https://intel.github.io/intel-extension-for-pytorch/latest/tutorials/installation.html#install-via-wheel-file
   skip: True  # [py<38 or py>310]
   skip: True  # [not linux64]
   missing_dso_whitelist:
@@ -53,10 +54,9 @@ requirements:
 test:
   requires:
     - pip
-    - torchvision
   commands:
     - pip check
-    - python -c "import torch; import torchvision; import intel_extension_for_pytorch"
+    - python -c "import torch; import torchvision; import intel_extension_for_pytorch as ipex; print('torch:', torch.__version__,' ipex:',ipex.__version__)"
 
 about:
   home: https://www.intel.com/content/www/us/en/developer/tools/oneapi/optimization-for-pytorch.html
