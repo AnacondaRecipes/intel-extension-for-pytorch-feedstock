@@ -1,0 +1,52 @@
+diff --git a/setup.py b/setup.py
+index 1c58f365..5dc47df5 100644
+--- a/setup.py
++++ b/setup.py
+@@ -242,7 +242,8 @@ def _check_env_flag(name, default=''):
+ 
+ 
+ def get_git_head_sha(base_dir):
+-    ipex_git_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=base_dir).decode('ascii').strip()
++    # ipex_git_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=base_dir).decode('ascii').strip()
++    ipex_git_sha = "e2fbae0bec3a3d14568447c48bd4f1624f04e054"
+     if os.path.isdir(os.path.join(base_dir, '..', '.git')):
+         torch_git_sha = subprocess.check_output(
+             ['git', 'rev-parse', 'HEAD'],
+@@ -462,17 +463,17 @@ class IPEXCPPLibBuild(build_clib, object):
+             check_call(['make'] + build_args, cwd=build_type_dir, env=env)
+ 
+         # Build the CPP UT
+-        cpp_test_dir = get_cpp_test_dir()
+-        cpp_test_build_dir = get_cpp_test_build_dir()
+-        if not os.path.exists(cpp_test_build_dir):
+-            Path(cpp_test_build_dir).mkdir(parents=True, exist_ok=True)
+-        cmake_args += ['-DPROJECT_DIR=' + project_dir]
+-        cmake_args += ['-DCPP_TEST_BUILD_DIR=' + cpp_test_build_dir]
+-        check_call([self.cmake, cpp_test_dir] + cmake_args, cwd=cpp_test_build_dir, env=env)
+-        if use_ninja:
+-            check_call(['ninja'] + build_args, cwd=cpp_test_build_dir, env=env)
+-        else:
+-            check_call(['make'] + build_args, cwd=cpp_test_build_dir, env=env)
++        # cpp_test_dir = get_cpp_test_dir()
++        # cpp_test_build_dir = get_cpp_test_build_dir()
++        # if not os.path.exists(cpp_test_build_dir):
++        #     Path(cpp_test_build_dir).mkdir(parents=True, exist_ok=True)
++        # cmake_args += ['-DPROJECT_DIR=' + project_dir]
++        # cmake_args += ['-DCPP_TEST_BUILD_DIR=' + cpp_test_build_dir]
++        # check_call([self.cmake, cpp_test_dir] + cmake_args, cwd=cpp_test_build_dir, env=env)
++        # if use_ninja:
++        #     check_call(['ninja'] + build_args, cwd=cpp_test_build_dir, env=env)
++        # else:
++        #     check_call(['make'] + build_args, cwd=cpp_test_build_dir, env=env)
+ 
+ 
+ cmdclass = {
+@@ -529,7 +530,7 @@ if mode == 'cppsdk':
+ # python specific setup modules
+ elif mode == 'python':
+     # Install requirements for building
+-    _install_requirements()
++    # _install_requirements()
+ 
+     def get_src_py_and_dst():
+         ret = []
